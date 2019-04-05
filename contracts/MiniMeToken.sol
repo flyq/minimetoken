@@ -123,9 +123,9 @@ contract MiniMeToken is Controlled {
     // The factory used to create new clone tokens
     MiniMeTokenFactory public tokenFactory;
 
-////////////////
-// Constructor
-////////////////
+    ////////////////
+    // Constructor
+    ////////////////
 
     /// @notice Constructor to create a MiniMeToken
     /// @param _tokenFactory The address of the MiniMeTokenFactory contract that
@@ -160,9 +160,9 @@ contract MiniMeToken is Controlled {
     }
 
 
-///////////////////
-// ERC20 Methods
-///////////////////
+    ///////////////////
+    // ERC20 Methods
+    ///////////////////
 
     /// @notice Send `_amount` tokens to `_to` from `msg.sender`
     /// @param _to The address of the recipient
@@ -305,9 +305,9 @@ contract MiniMeToken is Controlled {
     }
 
 
-////////////////
-// Query balance and totalSupply in History
-////////////////
+    ////////////////
+    // Query balance and totalSupply in History
+    ////////////////
 
     /// @dev Queries the balance of `_owner` at a specific `_blockNumber`
     /// @param _owner The address from which the balance will be retrieved
@@ -360,9 +360,9 @@ contract MiniMeToken is Controlled {
         }
     }
 
-////////////////
-// Clone Token Method
-////////////////
+    ////////////////
+    // Clone Token Method
+    ////////////////
 
     /// @notice Creates a new clone token with the initial distribution being
     ///  this token at `_snapshotBlock`
@@ -398,9 +398,9 @@ contract MiniMeToken is Controlled {
         return address(cloneToken);
     }
 
-////////////////
-// Generate and destroy tokens
-////////////////
+    ////////////////
+    // Generate and destroy tokens
+    ////////////////
 
     /// @notice Generates `_amount` tokens that are assigned to `_owner`
     /// @param _owner The address that will be assigned the new tokens
@@ -435,9 +435,9 @@ contract MiniMeToken is Controlled {
         return true;
     }
 
-////////////////
-// Enable tokens transfers
-////////////////
+    ////////////////
+    // Enable tokens transfers
+    ////////////////
 
 
     /// @notice Enables token holders to transfer their tokens freely if true
@@ -446,9 +446,9 @@ contract MiniMeToken is Controlled {
         transfersEnabled = _transfersEnabled;
     }
 
-////////////////
-// Internal helper functions to query and set a value in a snapshot array
-////////////////
+    ////////////////
+    // Internal helper functions to query and set a value in a snapshot array
+    ////////////////
 
     /// @dev `getValueAt` retrieves the number of tokens at a given block number
     /// @param checkpoints The history of values being queried
@@ -519,9 +519,9 @@ contract MiniMeToken is Controlled {
         require(TokenController(controller).proxyPayment.value(msg.value)(msg.sender));
     }
 
-//////////
-// Safety Methods
-//////////
+    //////////
+    // Safety Methods
+    //////////
 
     /// @notice This method can be used by the controller to extract mistakenly
     ///  sent tokens to this contract.
@@ -539,9 +539,9 @@ contract MiniMeToken is Controlled {
         ClaimedTokens(_token, controller, balance);
     }
 
-////////////////
-// Events
-////////////////
+    ////////////////
+    // Events
+    ////////////////
     event ClaimedTokens(address indexed _token, address indexed _controller, uint _amount);
     event Transfer(address indexed _from, address indexed _to, uint256 _amount);
     event NewCloneToken(address indexed _cloneToken, uint _snapshotBlock);
